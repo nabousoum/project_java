@@ -4,6 +4,15 @@ public class Pavillon {
     private int id;
     private int numero;
     private int nbrEtages;
+    private ResponsablePedagogique resp;
+
+    public ResponsablePedagogique getResp() {
+        return resp;
+    }
+
+    public void setResp(ResponsablePedagogique resp) {
+        this.resp = resp;
+    }
 
     public int getNbrEtages() {
         return nbrEtages;
@@ -31,7 +40,7 @@ public class Pavillon {
 
     @Override
     public String toString() {
-        return "Pavillon [id=" + id + ", nbrEtages=" + nbrEtages + ", numero=" + numero + "]";
+        return "Pavillon :id=" + id + ", nbrEtages=" + nbrEtages + ", numero=" + numero + " ";
     }
 
 }

@@ -38,8 +38,8 @@ public class Chambre {
 
     @Override
     public String toString() {
-        return "Chambre [etage=" + etage + ", id=" + id + ", numero=" + numero + ", pavillon=" + pavillon + ", resp="
-                + resp + ", type=" + type + "]";
+        return "ID:" + id + ", nombre d'etage" + etage + ", numero=" + numero + ", pavillon=" + pavillon + ", resp="
+                + resp + ", type de chambre" + type + " ";
     }
 
     public TypeChambre getType() {

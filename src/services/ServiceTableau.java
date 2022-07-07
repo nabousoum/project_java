@@ -12,6 +12,9 @@ public class ServiceTableau implements IService{
     private Chambre chambres[] = new Chambre[NOMBRE];
     private int indexChambre = 0;
 
+    private Pavillon pavillons[] = new Pavillon[NOMBRE];
+    private int indexPavillon = 0;
+
     @Override
     public void ajouterEtudiant(Etudiant etudiant) {
         
@@ -20,8 +23,23 @@ public class ServiceTableau implements IService{
 
     @Override
     public void ajouterPavillon(Pavillon pavillon) {
-        // TODO Auto-generated method stub
+        if(indexPavillon < NOMBRE){
+            pavillons[indexPavillon] = pavillon;
+            indexPavillon++;
+       }
+       else{
+            System.out.println("Le tableau est rempli");
+       }
         
+    }
+    @Override
+    public void listerPavillon() {
+        
+        for (Pavillon pavillon : pavillons) {
+            if(pavillon != null){
+                System.out.println(pavillon);
+            }
+        }
     }
 
     @Override
@@ -32,7 +50,7 @@ public class ServiceTableau implements IService{
 
     @Override
     public void supprimerPavillon(int id) {
-        // TODO Auto-generated method stub
+        //removeElement(chambres, id);
         
     }
 
@@ -59,5 +77,31 @@ public class ServiceTableau implements IService{
         }
         
     }
+
+    @Override
+    public void affecterChambreBoursier() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void affecterChambrePav() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void archiverChambre(int id) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void listerEtudiant() {
+        // TODO Auto-generated method stub
+        
+    }
+
+ 
     
 }
