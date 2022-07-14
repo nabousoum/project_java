@@ -13,14 +13,16 @@ public class ServiceList implements IService{
 
     private List<Chambre> chambres;
     private List<Pavillon> pavillons;
-
-    public ServiceList(List<Chambre> chambres,List<Pavillon> pavillons){
+    private List<Etudiant> etudiants;
+   
+    public ServiceList(List<Chambre> chambres,List<Pavillon> pavillons,List<Etudiant> etudiants){
         this.chambres = chambres;
         this.pavillons = pavillons;
+        this.etudiants = etudiants;
     }
     @Override
     public void ajouterEtudiant(Etudiant etudiant) {
-        
+        etudiants.add(etudiant);
     }
 
     @Override
@@ -79,13 +81,18 @@ public class ServiceList implements IService{
 
     @Override
     public void archiverChambre(int id) {
-        // TODO Auto-generated method stub
-        
+        for (Chambre c : chambres) {
+            if(c.getId() == id){
+                c.setEtat("archive");
+            }
+        }
     }
 
     @Override
     public void listerEtudiant() {
-        // TODO Auto-generated method stub
+        for (Etudiant etudiant : etudiants) {
+            System.out.println(etudiant);
+        }
         
     }
 

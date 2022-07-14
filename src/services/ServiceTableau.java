@@ -97,7 +97,11 @@ public class ServiceTableau implements IService{
 
     @Override
     public void archiverChambre(int id) {
-        // TODO Auto-generated method stub
+        for (Chambre c : chambres) {
+            if(c.getId() == id){
+                c.setEtat("archive");
+            }
+        }
         
     }
 

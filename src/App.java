@@ -16,7 +16,7 @@ public class App {
 
       
         //IService service = new ServiceTableau();
-        IService service = new ServiceList(new ArrayList<>(), new ArrayList<>());
+        IService service = new ServiceList(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         int selection;
         Scanner sc = new Scanner(System.in);
         do{
@@ -69,9 +69,12 @@ public class App {
                     String etage = sc.next();
                     chambre.setEtage(etage);
 
-                    //TypeChambre typeChambre ;
-                    System.out.println("veuillez choisir le type de chambre entre \n 1:"+TypeChambre.values()[0]+"\n 2: "+TypeChambre.values()[1]);
-                    int choixType = sc.nextInt();
+                    int choixType;
+                    do{
+                        System.out.println("veuillez choisir le type de chambre entre \n 1:"+TypeChambre.values()[0]+"\n 2: "+TypeChambre.values()[1]);
+                         choixType = sc.nextInt();
+                    }
+                    while(choixType != 1 && choixType != 2);
                     if(choixType == 1){
                         chambre.setType(TypeChambre.values()[0]);
                     }
@@ -86,7 +89,11 @@ public class App {
                     service.listerChambre();
                     break;
                 case 6:
-                    System.out.println("archiver chambre");
+                    System.out.println("Veuillez choisir l id de la chambre que vous voulez supprimer");
+                    service.listerChambre();
+                    int idChaSup = sc.nextInt();
+                    service.archiverChambre(idChaSup);
+                    System.out.println("la chambre a été archive avec succes");
                     break;
                 case 7:
                     System.out.println("affecter chambre a un pavillon");
