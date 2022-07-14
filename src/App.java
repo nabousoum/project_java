@@ -1,15 +1,17 @@
 import java.util.Scanner;
 
 import models.Chambre;
+import models.Etudiant;
 import models.Pavillon;
 import models.TypeChambre;
 import services.IService;
 import services.ServiceList;
 import services.ServiceTableau;
 import static java.lang.System.exit;
-
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Random;
+import java.text.SimpleDateFormat;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -28,9 +30,9 @@ public class App {
                 System.out.println("4 - Ajouter chambre");
                 System.out.println("5 - Lister toutes les chambres");
                 System.out.println("6 - Archiver chambre");
-                System.out.println("7 - affecter chambre a un pavillon");
+                System.out.println("7 - Affecter chambre a un pavillon");
                 System.out.println("8 - Ajouter etudiant");
-                System.out.println("9 - affecter chambre a un boursier logé");
+                System.out.println("9 - Liste des etudiants");
                 System.out.println("0 - quitter");
     
                 selection = sc.nextInt();
@@ -100,9 +102,33 @@ public class App {
                     break;
                 case 8:
                     System.out.println("ajouter etudiant");
+                    Etudiant etudiant = new Etudiant();
+
+                    System.out.println("donnez le prenom de l etudiant");
+                    etudiant.setPrenom(sc.next());
+
+                    System.out.println("donnez le nom de l etudiant");
+                    etudiant.setNom(sc.next()); 
+
+                    System.out.println("donnez l email de l etudiant");
+                    etudiant.setEmail(sc.next());
+
+                    System.out.println("donnez sa date de naissance");
+                    String sDate1=sc.next();
+                    Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+                    System.out.println("donnez sa date de naissance");
+                    etudiant.setDateNaiss(date1);
+
+                    System.out.println("donnez le numero de telephone de l etudiant");
+                    etudiant.setTelephone(sc.next());
+
+                    service.ajouterEtudiant(etudiant);
+                    System.out.println("l etudiant a été ajouté avec succes");
+                    //etudiant.setDateNaiss("02-10-2020");
                     break;
                 case 9:
-                    System.out.println("affecter chambre a un boursier logé");
+                    System.out.println("Liste des etudiants");
+                    service.listerEtudiant();
                     break;
                 case 0:
                     exit(0);

@@ -8,14 +8,17 @@ public class Etudiant extends Personne{
     protected String  email;
     protected String  telephone;
     protected Date  dateNaiss;
-
+    private String  isHoused;
+    
+    public Etudiant(){
+        matricule = "MAT"+id;
+    }
     public Date getDateNaiss() {
         return dateNaiss;
     }
     public void setDateNaiss(Date dateNaiss) {
         this.dateNaiss = dateNaiss;
     }
-    private String  isHoused;
 
     public String getMatricule() {
         return matricule;
@@ -42,6 +45,11 @@ public class Etudiant extends Personne{
     }
     public void setIsHoused(String isHoused) {
         this.isHoused = isHoused;
+    }
+    @Override
+    public String toString() {
+        return "Etudiant [dateNaiss=" + dateNaiss + ", email=" + email + ", isHoused=" + isHoused + ", matricule="
+                + matricule + ", telephone=" + telephone + "]";
     }
 
 }
