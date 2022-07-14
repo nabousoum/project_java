@@ -38,7 +38,12 @@ public class ServiceList implements IService{
     @Override
     public Pavillon getPavillonById(int id) {
         Pavillon pavillon = null;
-       return pavillon;
+        for (Pavillon p : pavillons) {
+            if(p!=null && p.getId() == id){
+                pavillon = p;
+            }
+        }
+        return pavillon;
     }
 
     @Override

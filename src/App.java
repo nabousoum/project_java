@@ -15,8 +15,8 @@ public class App {
     public static void main(String[] args) throws Exception {
 
       
-        IService service = new ServiceTableau();
-        //IService service = new ServiceList(new ArrayList<>(), new ArrayList<>());
+        //IService service = new ServiceTableau();
+        IService service = new ServiceList(new ArrayList<>(), new ArrayList<>());
         int selection;
         Scanner sc = new Scanner(System.in);
         do{
@@ -53,7 +53,10 @@ public class App {
                     break;
                 case 3: 
                     System.out.println("Veuillez choisir l id du pavillon que vous voulez supprimer");
-                    
+                    service.listerPavillon();
+                    int idPavSup = sc.nextInt();
+                    service.supprimerPavillon(idPavSup);
+                    System.out.println("le pavillon a été supprimé avec succes");
                     break;
                 case 4:
                     Chambre chambre = new Chambre();
