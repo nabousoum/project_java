@@ -1,8 +1,7 @@
 package models;
 
-public class Boursier {
+public class Boursier extends Etudiant{
     
-    private String typeBourse;
     private Chambre chambre;
     private TypeBourse type;
 
@@ -22,11 +21,4 @@ public class Boursier {
         this.chambre = chambre;
     }
 
-    public String getTypeBourse() {
-        return typeBourse;
-    }
-
-    public void setTypeBourse(String typeBourse) {
-        this.typeBourse = typeBourse;
-    }
 }

@@ -2,6 +2,7 @@ package models;
 
 public class Chambre {
 
+    private static int nbr;
     private TypeChambre type;
     private int id;
     private String numero;
@@ -10,7 +11,12 @@ public class Chambre {
     private Pavillon pavillon;
     private ResponsablePedagogique resp;
 
-  
+
+    public Chambre(){
+        nbr++;
+        id=nbr;
+        numero = "ch000"+id;
+    }
 
     public String getEtage() {
         return etage;
@@ -38,8 +44,8 @@ public class Chambre {
 
     @Override
     public String toString() {
-        return "ID:" + id + ", nombre d'etage" + etage + ", numero=" + numero + ", pavillon=" + pavillon + ", resp="
-                + resp + ", type de chambre" + type + " ";
+        return "ID:" + id + ", nombre d'etage " + etage + ", numero=" + numero + ", pavillon=" + pavillon + ", resp="
+                + resp + ", type de chambre " + type + " ";
     }
 
     public TypeChambre getType() {

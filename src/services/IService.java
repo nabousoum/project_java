@@ -7,7 +7,7 @@ public interface IService {
 
     public void ajouterPavillon(Pavillon pavillon);
     public void supprimerPavillon(int id);
-    public int getPositionPavillon(int id);
+    public Pavillon getPavillonById(int id);
     public void affecterChambrePav();
     public void listerPavillon();
 

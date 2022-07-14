@@ -1,6 +1,6 @@
 package models;
 
-public class NonBoursier {
+public class NonBoursier extends Etudiant{
     private String  adresse;
 
     public String getAdresse() {

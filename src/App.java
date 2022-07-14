@@ -4,8 +4,11 @@ import models.Chambre;
 import models.Pavillon;
 import models.TypeChambre;
 import services.IService;
+import services.ServiceList;
 import services.ServiceTableau;
 import static java.lang.System.exit;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 public class App {
@@ -13,6 +16,7 @@ public class App {
 
       
         IService service = new ServiceTableau();
+        //IService service = new ServiceList(new ArrayList<>(), new ArrayList<>());
         int selection;
         Scanner sc = new Scanner(System.in);
         do{
@@ -30,20 +34,15 @@ public class App {
                 System.out.println("0 - quitter");
     
                 selection = sc.nextInt();
-             int id = 0;
+             
             switch(selection){
                 case 1:
-                    id++;
+                  
                     Pavillon pavillon = new Pavillon();
-                    pavillon.setId(id);
 
                     System.out.println("Veuillez saisir le nombres d etages du pavillon");
                     int nbrEt = sc.nextInt();
                     pavillon.setNbrEtages(nbrEt);
-
-                    System.out.println("Veuilez saisir le numero du pavillon");
-                    int num = sc.nextInt();
-                    pavillon.setNumero(num);
 
                     service.ajouterPavillon(pavillon);
                     System.out.println("le pavillon a bien été enregistré");
@@ -58,30 +57,24 @@ public class App {
                     break;
                 case 4:
                     Chambre chambre = new Chambre();
-                    // Pavillon pavillon = new Pavillon();
-
-                    // System.out.println("Veuillez choisir un pavillon:");
-                    //service.listePavillon();
-                    // int idPav = sc.nextInt();
-                    // pavillon.setId(idPav);
-
-                    System.out.println("Veuillez saisir l id de la chambre:");
-                    int idCh = sc.nextInt(); 
-                    chambre.setId(idCh);
-
-                    System.out.println("Veuillez saisir le numero de la chambre:");
-                    String numCha = sc.next();
-                    chambre.setNumero(numCha);
-
+                    System.out.println("Veuillez choisir l id du pavillon:");
+                    service.listerPavillon();
+                    int idPav = sc.nextInt();
+                    pavillon =  service.getPavillonById(idPav);
+                    chambre.setPavillon(pavillon); 
                     System.out.println("Veuillez saisir le numero de l'etages:");
                     String etage = sc.next();
                     chambre.setEtage(etage);
 
-                    TypeChambre typeChambre = TypeChambre.DOUBLE;
-                    chambre.setType(typeChambre);
-
-                    //chambre.setPavillon(pavillon);
-
+                    //TypeChambre typeChambre ;
+                    System.out.println("veuillez choisir le type de chambre entre \n 1:"+TypeChambre.values()[0]+"\n 2: "+TypeChambre.values()[1]);
+                    int choixType = sc.nextInt();
+                    if(choixType == 1){
+                        chambre.setType(TypeChambre.values()[0]);
+                    }
+                    else if(choixType == 2){
+                        chambre.setType(TypeChambre.values()[1]);
+                    }
                     service.ajouterChambre(chambre);
                     System.out.println("la chambre a bien été ajoutée");
                     break;

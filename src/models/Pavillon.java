@@ -1,11 +1,17 @@
 package models;
 
 public class Pavillon {
+    private static int nbr;
     private int id;
-    private int numero;
+    private String numero;
     private int nbrEtages;
     private ResponsablePedagogique resp;
 
+    public Pavillon(){
+        nbr++;
+        id=nbr;
+        numero = "pav000"+id;
+    }
     public ResponsablePedagogique getResp() {
         return resp;
     }
@@ -22,11 +28,11 @@ public class Pavillon {
         this.nbrEtages = nbrEtages;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -40,7 +46,7 @@ public class Pavillon {
 
     @Override
     public String toString() {
-        return "Pavillon :id=" + id + ", nbrEtages=" + nbrEtages + ", numero=" + numero + " ";
+        return "Pavillon :ID:" + id + ", nbrEtages: " + nbrEtages + ", numero: " + numero + " ";
     }
 
 }
